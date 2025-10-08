@@ -1,79 +1,537 @@
 <html>
-  <head>
-    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-entity class="room">
-            
-            <a-entity class="wall" rotation="0 90 0" position="3 0 -3">
-                <a-box width="2" height="3" depth="0.1" position="-2 1.5 0" ></a-box>
-                <a-box width="2" height="3" depth="0.1" position="2 1.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 0.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 2.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" color="blue" opacity="0.2" position="0 1.5 0" ></a-box>
-            </a-entity>
-            <a-entity class="wall" rotation="0 90 0" position="-3 0 -3">
-                <a-box width="2" height="3" depth="0.1" position="-2 1.5 0" ></a-box>
-                <a-box width="2" height="3" depth="0.1" position="2 1.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 0.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 2.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" color="blue" opacity="0.2" position="0 1.5 0" ></a-box>
-            </a-entity>
-            <a-entity class="wall" position="-6 0 -6">
-                <a-box width="2" height="3" depth="0.1" position="-2 1.5 0" ></a-box>
-                <a-box width="2" height="3" depth="0.1" position="2 1.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 0.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 2.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" color="blue" opacity="0.2" position="0 1.5 0" ></a-box>
-            </a-entity>
-             <a-entity class="wall" rotation="0 90 0" position="-9 0 -9">
-                <a-box width="2" height="3" depth="0.1" position="-2 1.5 0" ></a-box>
-                <a-box width="2" height="3" depth="0.1" position="2 1.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 0.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 2.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" color="blue" opacity="0.2" position="0 1.5 0" ></a-box>
-            </a-entity>
-            <a-entity class="wall" position="-6 0 -12">
-                <a-box width="2" height="3" depth="0.1" position="-2 1.5 0" ></a-box>
-                <a-box width="2" height="3" depth="0.1" position="2 1.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 0.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 2.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" color="blue" opacity="0.2" position="0 1.5 0" ></a-box>
-            </a-entity>
-             <a-entity class="wall" position="0 0 -12">
-                <a-box width="2" height="3" depth="0.1" position="-2 1.5 0" ></a-box>
-                <a-box width="2" height="3" depth="0.1" position="2 1.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 0.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 2.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" color="blue" opacity="0.2" position="0 1.5 0" ></a-box>
-            </a-entity>
-            <a-entity class="wall" position="3 0 -9" rotation="0 90 0">
-                <a-box width="2" height="3" depth="0.1" position="-2 1.5 0" ></a-box>
-                <a-box width="2" height="3" depth="0.1" position="2 1.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 0.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" position="0 2.5 0" ></a-box>
-                <a-box width="2" height="1" depth="0.1" color="blue" opacity="0.2" position="0 1.5 0" ></a-box>
-            </a-entity>
-            
-              <!-- second floor  -->
-            <a-entity class="wall" position="3 -1 -6.5" rotation ="90 0 0" >
-                <a-box width="6" height="5" depth="0.1" position="-9 3 -4" ></a-box>
-            </a-entity>
-            <!-- the seperate thing -->
-             <a-entity class="wall" rotation="0 90 0" position="-9 0 -4">
-                <a-box width="0.5" height="3" depth="0.1" position="-2 1.5 0" ></a-box>
-                
-            </a-entity>
+
+<head>
+  <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="sky-texture" src="Sky.jpg">
+      <img id="grass-texture" src="texture_grass.jpeg">
+    </a-assets>
+
+    <a-entity class="house" wireframe="true" position="-17 0 -25" rotation="0 90 0">
+
+      <!-- RIGHT SIDE WALL - Window kept -->
+      <a-entity class="wall" rotation="0 90 0" position="3 0 -3">
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- LEFT SIDE WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" rotation="0 90 0" position="-3 0 -3">
+        <a-box color="#6A89A7" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- FRONT WALL - Window kept -->
+      <a-entity class="wall" position="-6 0 -6">
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- LEFT BACK CORNER WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" rotation="0 90 0" position="-9 0 -9">
+        <a-box color="#6A89A7" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- BACK WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" position="-6 0 -12">
+        <a-box color="#6A89A7" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- RIGHT BACK WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" position="0 0 -12">
+        <a-box color="#6A89A7" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- RIGHT BACK CORNER WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" position="3 0 -9" rotation="0 90 0">
+        <a-box color="#6A89A7" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- SECOND FLOOR (balcony floor - extends out from house) -->
+      <a-box color="#8B4513" width="6" height="0.2" depth="6" position="-6 3 -3" rotation="0 0 0"></a-box>
+
+      <!-- BALCONY RAILINGS - short glass walls -->
+      <a-box color="white" opacity="0.3" width="0.1" height="0.8" depth="6" position="-9 3.4 -3"></a-box>
+      <a-box color="white" opacity="0.3" width="6" height="0.8" depth="0.1" position="-6 3.4 0"></a-box>
+
+      <!-- SECOND FLOOR WALLS - Right side extends outward -->
+      <!-- Right side wall with window - EXTENDED OUT -->
+      <a-box color="#818589" width="6" height="3" depth="0.1" position="3 4.5 -3" rotation="0 90 0"></a-box>
+      <a-box color="#818589" width="6" height="3" depth="0.1" position="5.9 4.6 -12" rotation="0 0 0"></a-box>
+      <a-box color="#818589" width="6" height="6" depth="0.1" position="5.9 3.1 -9" rotation="90 0 0"></a-box>
+      <a-box color="#818589" width="6" height="3" depth="0.1" position="8.9 4.5 -9" rotation="0 90 0"></a-box>
+
+      <a-entity class="wall" rotation="0 0 0" position="5.9 3 -6">
+        <a-box color="#818589" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#818589" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#818589" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#818589" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+
+
+      <!-- Left side wall - solid (no window) -->
+      <a-box color="#818589" width="6" height="3" depth="0.1" position="-3 4.5 -3" rotation="0 90 0"></a-box>
+
+      <!-- Front wall with window - EXTENDED -->
+      <a-box color="#818589" width="2" height="3" depth="0.1" position="-8 4.5 -6"></a-box>
+      <a-box color="#818589" width="2" height="3" depth="0.1" position="-4 4.5 -6"></a-box>
+      <a-box color="#818589" width="2" height="1" depth="0.1" position="-6 3.5 -6"></a-box>
+      <a-box color="#818589" width="2" height="1" depth="0.1" position="-6 5.5 -6"></a-box>
+      <a-box color="white" opacity="0.2" width="2" height="1" depth="0.1" position="-6 4.5 -6"></a-box>
+
+      <!-- 2nd Top -->
+      <a-box color="#818589" width="6" height="3" depth="0.1" position="0 4.5 0"></a-box>
+
+      <!-- Left back corner wall - solid -->
+      <a-box color="#818589" width="6" height="3" depth="0.1" position="-9 4.5 -9" rotation="0 90 0"></a-box>
+
+      <!-- Back wall with window -->
+      <a-entity class="wall" position="-6 3 -12">
+        <a-box color="#818589" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#818589" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#818589" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#818589" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+      <a-entity class="wall" position="0 3 -12">
+        <a-box color="#818589" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#818589" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#818589" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#818589" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- FRONT DOOR AND SURROUNDING WALL -->
+      <a-entity position="0 0 0">
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="-2s 1.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <!-- Door -->
+        <a-box color="#654321" width="2" height="3" depth="0.1" position="0 1.5 0"></a-box>
+        <!-- Door handle -->
+        <a-sphere color="#FFD700" radius="0.1" position="0.8 1.5 0.06"></a-sphere>
+        <!-- Doorbell -->
+        <a-cylinder color="#FF0000" radius="0.05" height="0.02" position="-0.8 2 0.06" rotation="90 0 0"></a-cylinder>
+      </a-entity>
+
+      <!-- GARAGE PILLARS - Multiple pillars with gaps -->
+      <a-box color="#A9A9A9" width="0.5" height="3" depth="0.5" position="-8.5 1.4 -0.2"></a-box>
+      <a-box color="#A9A9A9" width="0.5" height="3" depth="0.5" position="-8.5 1.5 -2"></a-box>
+      <a-box color="#A9A9A9" width="0.5" height="3" depth="0.5" position="-8.5 1.5 -4"></a-box>
+      <a-box color="#A9A9A9" width="0.5" height="3" depth="0.5" position="-8.5 1.5 -6"></a-box>
+
+      <!-- roof -->
+      <a-box color="#555555" width="20" height="0.4" depth="13" position="0 6.5 -7"></a-box>
+
+      <!-- PORCH in front of door -->
+      <a-box color="#8B4513" width="4" height="0.2" depth="2.5" position="0 0.1 1"></a-box>
+      <!-- Porch pillars -->
+      <a-box color="#FFFFFF" width="0.3" height="3.5" depth="0.3" position="-1.5 1 2"></a-box>
+      <a-box color="#FFFFFF" width="0.3" height="3.5" depth="0.3" position="1.5 1 2"></a-box>
+      <!-- Porch roof -->
+      <a-box color="#555555" width="6" height="0.3" depth="2.5" position="0 3.1 1"></a-box>
+      <!-- DRIVEWAY -->
+      <a-box color="#3C3C3C" width="6" height="0.05" depth="20" position="-6 0.03 -1.9"></a-box>
+
+      <!-- CAR -->
+      <a-entity class="car" position="-5.5 0.5 -3" scale="0.6 0.6 0.6">
+        <a-box wireframe="true" position="0 1 0" width="4.5" height="3" depth="7"></a-box>
+        <!-- body -->
+        <a-box position="0 1 0" width="2.5" height="2" depth="6" color="black"></a-box>
+        <!-- front bumper -->
+        <a-box position="0 0.5 3.5" width="2.5" height="1" depth="1" color="black"></a-box>
+        <!-- roof -->
+        <a-box position="0 2 0" width="2.3" height="0.7" depth="4" color="black"></a-box>
+        <!-- windshield -->
+        <a-box position="0 1.5 1.5" width="2" height="0.8" depth="3.1" color="white"></a-box>
+
+        <a-cylinder position="0.8 0.5 -2.8" radius="0.2" height="1.5" rotation="90 0 0" color="#D3D3D3"></a-cylinder>
+        <!-- headlights -->
+        <a-circle position="-0.6 0.5 4.1" radius="0.2" color="#FFFF00"></a-circle>
+        <a-circle position="0.6 0.5 4.1" radius="0.2" color="#FFFF00"></a-circle>
+
+        <a-torus position="-1.5 0.1 2.5" radius="0.7" rotation="0 90 0" color="red"></a-torus>
+        <a-torus position="1.5 0.1 2.5" radius="0.7" rotation="0 90 0" color="red"></a-torus>
+        <a-torus position="-1.5 0.1 -2.5" radius="0.7" rotation="0 90 0" color="red"></a-torus>
+        <a-torus position="1.5 0.1 -2.5" radius="0.7" rotation="0 90 0" color="red"></a-torus>
+      </a-entity>
+
+    </a-entity>
+
+    <a-entity class="house" wireframe="true" position="2 0 -35">
+
+      <!-- RIGHT SIDE WALL - Window kept -->
+      <a-entity class="wall" rotation="0 90 0" position="3 0 -3">
+        <a-box color="#D16A5A" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#D16A5A" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#D16A5A" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#D16A5A" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- LEFT SIDE WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" rotation="0 90 0" position="-3 0 -3">
+        <a-box color="#D16A5A" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- FRONT WALL - Window kept -->
+      <a-entity class="wall" position="-6 0 -6">
+        <a-box color="#D16A5A" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#D16A5A" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#D16A5A" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#D16A5A" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- LEFT BACK CORNER WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" rotation="0 90 0" position="-9 0 -9">
+        <a-box color="#D16A5A" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- BACK WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" position="-6 0 -12">
+        <a-box color="#D16A5A" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- RIGHT BACK WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" position="0 0 -12">
+        <a-box color="#D16A5A" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- RIGHT BACK CORNER WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" position="3 0 -9" rotation="0 90 0">
+        <a-box color="#D16A5A" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- SECOND FLOOR (balcony floor - extends out from house) -->
+      <a-box color="#E2C75C" width="6" height="0.2" depth="6" position="-6 3 -3" rotation="0 0 0"></a-box>
+
+      <!-- BALCONY RAILINGS - short glass walls -->
+      <a-box color="white" opacity="0.3" width="0.1" height="0.8" depth="6" position="-9 3.4 -3"></a-box>
+      <a-box color="white" opacity="0.3" width="6" height="0.8" depth="0.1" position="-6 3.4 0"></a-box>
+
+      <!-- SECOND FLOOR WALLS - Right side extends outward -->
+      <!-- Right side wall with window - EXTENDED OUT -->
+      <a-box color="#E2C75C" width="6" height="3" depth="0.1" position="3 4.5 -3" rotation="0 90 0"></a-box>
+      <a-box color="#E2C75C" width="6" height="3" depth="0.1" position="5.9 4.6 -12" rotation="0 0 0"></a-box>
+      <a-box color="#E2C75C" width="6" height="6" depth="0.1" position="5.9 3.1 -9" rotation="90 0 0"></a-box>
+      <a-box color="#E2C75C" width="6" height="3" depth="0.1" position="8.9 4.5 -9" rotation="0 90 0"></a-box>
+
+      <a-entity class="wall" rotation="0 0 0" position="5.9 3 -6">
+        <a-box color="#E2C75C" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#E2C75C" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#E2C75C" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#E2C75C" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+
+
+      <!-- Left side wall - solid (no window) -->
+      <a-box color="#E2C75C" width="6" height="3" depth="0.1" position="-3 4.5 -3" rotation="0 90 0"></a-box>
+
+      <!-- Front wall with window - EXTENDED -->
+      <a-box color="#E2C75C" width="2" height="3" depth="0.1" position="-8 4.5 -6"></a-box>
+      <a-box color="#E2C75C" width="2" height="3" depth="0.1" position="-4 4.5 -6"></a-box>
+      <a-box color="#E2C75C" width="2" height="1" depth="0.1" position="-6 3.5 -6"></a-box>
+      <a-box color="#E2C75C" width="2" height="1" depth="0.1" position="-6 5.5 -6"></a-box>
+      <a-box color="white" opacity="0.2" width="2" height="1" depth="0.1" position="-6 4.5 -6"></a-box>
+
+      <!-- 2nd Top -->
+      <a-box color="#E2C75C" width="6" height="3" depth="0.1" position="0 4.5 0"></a-box>
+
+      <!-- Left back corner wall - solid -->
+      <a-box color="#E2C75C width=" 6" height="3" depth="0.1" position="-9 4.5 -9" rotation="0 90 0"></a-box>
+
+      <!-- Back wall with window -->
+      <a-entity class="wall" position="-6 3 -12">
+        <a-box color="#E2C75C" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#E2C75C" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#E2C75C" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#E2C75C" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+      <a-entity class="wall" position="0 3 -12">
+        <a-box color="#E2C75C" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#E2C75C" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#E2C75C" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#E2C75C" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- FRONT DOOR AND SURROUNDING WALL -->
+      <a-entity position="0 0 0">
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="-2s 1.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <!-- Door -->
+        <a-box color="#654321" width="2" height="3" depth="0.1" position="0 1.5 0"></a-box>
+        <!-- Door handle -->
+        <a-sphere color="#FFD700" radius="0.1" position="0.8 1.5 0.06"></a-sphere>
+        <!-- Doorbell -->
+        <a-cylinder color="#FF0000" radius="0.05" height="0.02" position="-0.8 2 0.06" rotation="90 0 0"></a-cylinder>
+      </a-entity>
+
+      <!-- GARAGE PILLARS - Multiple pillars with gaps -->
+      <a-box color="#A9A9A9" width="0.5" height="3" depth="0.5" position="-8.5 1.4 -0.2"></a-box>
+      <a-box color="#A9A9A9" width="0.5" height="3" depth="0.5" position="-8.5 1.5 -2"></a-box>
+      <a-box color="#A9A9A9" width="0.5" height="3" depth="0.5" position="-8.5 1.5 -4"></a-box>
+      <a-box color="#A9A9A9" width="0.5" height="3" depth="0.5" position="-8.5 1.5 -6"></a-box>
+
+      <!-- roof -->
+      <a-box color="#2C5F2D" width="20" height="0.4" depth="13" position="0 6.5 -7"></a-box>
+
+      <!-- PORCH in front of door -->
+      <a-box color="#D16A5A" width="4" height="0.2" depth="2.5" position="0 0.1 1"></a-box>
+      <!-- Porch pillars -->
+      <a-box color="#FFFFFF" width="0.3" height="3.5" depth="0.3" position="-1.5 1 2"></a-box>
+      <a-box color="#FFFFFF" width="0.3" height="3.5" depth="0.3" position="1.5 1 2"></a-box>
+      <!-- Porch roof -->
+      <a-box color="#555555" width="6" height="0.3" depth="2.5" position="0 3.1 1"></a-box>
+      <!-- DRIVEWAY -->
+      <a-box color="#3C3C3C" width="6" height="0.05" depth="20" position="-6 0.03 -1.9"></a-box>
+
+      <!-- CAR -->
+      <a-entity class="car" position="-5.5 0.5 -3" scale="0.6 0.6 0.6">
+        <a-box wireframe="true" position="0 1 0" width="4.5" height="3" depth="7"></a-box>
+        <!-- body -->
+        <a-box position="0 1 0" width="2.5" height="2" depth="6" color="blue"></a-box>
+        <!-- front bumper -->
+        <a-box position="0 0.5 3.5" width="2.5" height="1" depth="1" color="blue"></a-box>
+        <!-- roof -->
+        <a-box position="0 2 0" width="2.3" height="0.7" depth="4" color="blue"></a-box>
+        <!-- windshield -->
+        <a-box position="0 1.5 1.5" width="2" height="0.8" depth="3.1" color="white"></a-box>
+
+        <a-cylinder position="0.8 0.5 -2.8" radius="0.2" height="1.5" rotation="90 0 0" color="#D3D3D3"></a-cylinder>
+        <!-- headlights -->
+        <a-circle position="-0.6 0.5 4.1" radius="0.2" color="#FFFF00"></a-circle>
+        <a-circle position="0.6 0.5 4.1" radius="0.2" color="#FFFF00"></a-circle>
+
+        <a-torus position="-1.5 0.1 2.5" radius="0.7" rotation="0 90 0" color="black"></a-torus>
+        <a-torus position="1.5 0.1 2.5" radius="0.7" rotation="0 90 0" color="black"></a-torus>
+        <a-torus position="-1.5 0.1 -2.5" radius="0.7" rotation="0 90 0" color="black"></a-torus>
+        <a-torus position="1.5 0.1 -2.5" radius="0.7" rotation="0 90 0" color="black"></a-torus>
+      </a-entity>
+
+    </a-entity>
+
+
+    <a-entity class="house" wireframe="true" position="15 0 -18" rotation="0 270 0">
+
+      <!-- RIGHT SIDE WALL - Window kept -->
+      <a-entity class="wall" rotation="0 90 0" position="3 0 -3">
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- LEFT SIDE WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" rotation="0 90 0" position="-3 0 -3">
+        <a-box color="#6A89A7" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- FRONT WALL - Window kept -->
+      <a-entity class="wall" position="-6 0 -6">
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- LEFT BACK CORNER WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" rotation="0 90 0" position="-9 0 -9">
+        <a-box color="#6A89A7" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- BACK WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" position="-6 0 -12">
+        <a-box color="#6A89A7" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- RIGHT BACK WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" position="0 0 -12">
+        <a-box color="#6A89A7" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- RIGHT BACK CORNER WALL - NO WINDOW (solid wall) -->
+      <a-entity class="wall" position="3 0 -9" rotation="0 90 0">
+        <a-box color="#6A89A7" width="6" height="3" depth="0.1" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- SECOND FLOOR (balcony floor - extends out from house) -->
+      <a-box color="#8B4513" width="6" height="0.2" depth="6" position="-6 3 -3" rotation="0 0 0"></a-box>
+
+      <!-- BALCONY RAILINGS - short glass walls -->
+      <a-box color="white" opacity="0.3" width="0.1" height="0.8" depth="6" position="-9 3.4 -3"></a-box>
+      <a-box color="white" opacity="0.3" width="6" height="0.8" depth="0.1" position="-6 3.4 0"></a-box>
+
+      <!-- SECOND FLOOR WALLS - Right side extends outward -->
+      <!-- Right side wall with window - EXTENDED OUT -->
+      <a-box color="#818589" width="6" height="3" depth="0.1" position="3 4.5 -3" rotation="0 90 0"></a-box>
+      <a-box color="#818589" width="6" height="3" depth="0.1" position="5.9 4.6 -12" rotation="0 0 0"></a-box>
+      <a-box color="#818589" width="6" height="6" depth="0.1" position="5.9 3.1 -9" rotation="90 0 0"></a-box>
+      <a-box color="#818589" width="6" height="3" depth="0.1" position="8.9 4.5 -9" rotation="0 90 0"></a-box>
+
+      <a-entity class="wall" rotation="0 0 0" position="5.9 3 -6">
+        <a-box color="#818589" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#818589" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#818589" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#818589" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+
+
+      <!-- Left side wall - solid (no window) -->
+      <a-box color="#818589" width="6" height="3" depth="0.1" position="-3 4.5 -3" rotation="0 90 0"></a-box>
+
+      <!-- Front wall with window - EXTENDED -->
+      <a-box color="#818589" width="2" height="3" depth="0.1" position="-8 4.5 -6"></a-box>
+      <a-box color="#818589" width="2" height="3" depth="0.1" position="-4 4.5 -6"></a-box>
+      <a-box color="#818589" width="2" height="1" depth="0.1" position="-6 3.5 -6"></a-box>
+      <a-box color="#818589" width="2" height="1" depth="0.1" position="-6 5.5 -6"></a-box>
+      <a-box color="white" opacity="0.2" width="2" height="1" depth="0.1" position="-6 4.5 -6"></a-box>
+
+      <!-- 2nd Top -->
+      <a-box color="#818589" width="6" height="3" depth="0.1" position="0 4.5 0"></a-box>
+
+      <!-- Left back corner wall - solid -->
+      <a-box color="#818589" width="6" height="3" depth="0.1" position="-9 4.5 -9" rotation="0 90 0"></a-box>
+
+      <!-- Back wall with window -->
+      <a-entity class="wall" position="-6 3 -12">
+        <a-box color="#818589" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#818589" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#818589" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#818589" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+      <a-entity class="wall" position="0 3 -12">
+        <a-box color="#818589" width="2" height="3" depth="0.1" position="-2 1.5 0"></a-box>
+        <a-box color="#818589" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <a-box color="#818589" width="2" height="1" depth="0.1" position="0 0.5 0"></a-box>
+        <a-box color="#818589" width="2" height="1" depth="0.1" position="0 2.5 0"></a-box>
+        <a-box width="2" height="1" depth="0.1" color="white" opacity="0.2" position="0 1.5 0"></a-box>
+      </a-entity>
+
+      <!-- FRONT DOOR AND SURROUNDING WALL -->
+      <a-entity position="0 0 0">
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="-2s 1.5 0"></a-box>
+        <a-box color="#6A89A7" width="2" height="3" depth="0.1" position="2 1.5 0"></a-box>
+        <!-- Door -->
+        <a-box color="#654321" width="2" height="3" depth="0.1" position="0 1.5 0"></a-box>
+        <!-- Door handle -->
+        <a-sphere color="#FFD700" radius="0.1" position="0.8 1.5 0.06"></a-sphere>
+        <!-- Doorbell -->
+        <a-cylinder color="#FF0000" radius="0.05" height="0.02" position="-0.8 2 0.06" rotation="90 0 0"></a-cylinder>
+      </a-entity>
+
+      <!-- GARAGE PILLARS - Multiple pillars with gaps -->
+      <a-box color="#A9A9A9" width="0.5" height="3" depth="0.5" position="-8.5 1.4 -0.2"></a-box>
+      <a-box color="#A9A9A9" width="0.5" height="3" depth="0.5" position="-8.5 1.5 -2"></a-box>
+      <a-box color="#A9A9A9" width="0.5" height="3" depth="0.5" position="-8.5 1.5 -4"></a-box>
+      <a-box color="#A9A9A9" width="0.5" height="3" depth="0.5" position="-8.5 1.5 -6"></a-box>
+
+      <!-- roof -->
+      <a-box color="#555555" width="20" height="0.4" depth="13" position="0 6.5 -7"></a-box>
+
+      <!-- PORCH in front of door -->
+      <a-box color="#8B4513" width="4" height="0.2" depth="2.5" position="0 0.1 1"></a-box>
+      <!-- Porch pillars -->
+      <a-box color="#FFFFFF" width="0.3" height="3.5" depth="0.3" position="-1.5 1 2"></a-box>
+      <a-box color="#FFFFFF" width="0.3" height="3.5" depth="0.3" position="1.5 1 2"></a-box>
+      <!-- Porch roof -->
+      <a-box color="#555555" width="6" height="0.3" depth="2.5" position="0 3.1 1"></a-box>
+      <!-- DRIVEWAY -->
+      <a-box color="#3C3C3C" width="6" height="0.05" depth="20" position="-6 0.03 -1.9"></a-box>
+
+      <!-- CAR -->
+      <a-entity class="car" position="-5.5 0.5 -3" scale="0.6 0.6 0.6">
+        <a-box wireframe="true" position="0 1 0" width="4.5" height="3" depth="7"></a-box>
+        <!-- body -->
+        <a-box position="0 1 0" width="2.5" height="2" depth="6" color="black"></a-box>
+        <!-- front bumper -->
+        <a-box position="0 0.5 3.5" width="2.5" height="1" depth="1" color="black"></a-box>
+        <!-- roof -->
+        <a-box position="0 2 0" width="2.3" height="0.7" depth="4" color="black"></a-box>
+        <!-- windshield -->
+        <a-box position="0 1.5 1.5" width="2" height="0.8" depth="3.1" color="white"></a-box>
+
+        <a-cylinder position="0.8 0.5 -2.8" radius="0.2" height="1.5" rotation="90 0 0" color="#D3D3D3"></a-cylinder>
+        <!-- headlights -->
+        <a-circle position="-0.6 0.5 4.1" radius="0.2" color="#FFFF00"></a-circle>
+        <a-circle position="0.6 0.5 4.1" radius="0.2" color="#FFFF00"></a-circle>
+
+        <a-torus position="-1.5 0.1 2.5" radius="0.7" rotation="0 90 0" color="red"></a-torus>
+        <a-torus position="1.5 0.1 2.5" radius="0.7" rotation="0 90 0" color="red"></a-torus>
+        <a-torus position="-1.5 0.1 -2.5" radius="0.7" rotation="0 90 0" color="red"></a-torus>
+        <a-torus position="1.5 0.1 -2.5" radius="0.7" rotation="0 90 0" color="red"></a-torus>
+      </a-entity>
+
+    </a-entity>
+
+  
+
+
+      <!-- ROAD -->
+      <a-box color="#3C3C3C" width="8" height="0.05" depth="30" position="0 0.03 5"></a-box>
+      <a-box color="#FFFF00" width="0.2" height="0.06" depth="30" position="0 0.06 5"></a-box>
+
+      <a-cylinder color="#3C3C3C" radius="12" height="0.05" position="0 0.03 -20"></a-cylinder>
+      <a-cylinder color="#228B22" radius="5" height="0.1" position="0 0.08 -20"></a-cylinder>
+      <a-torus color="#FFFF00" radius="5.3" radius-tubular="0.2" position="0 0.12 -20" rotation="90 0 0"></a-torus>
+
+      <a-entity class="tree" position="-5 0 3">
+        <a-sphere src="#grass-texture" position="0 4 -5" radius="1.25"></a-sphere>
+        <a-sphere src="#grass-texture" position="-1 3 -5" radius="1.25"></a-sphere>
+        <a-sphere src="#grass-texture" position="1 3 -5" radius="1.25"></a-sphere>
+        <a-cylinder src="texture_rock.jpeg" position="0 0.75 -5" radius="0.5" height="3.5"></a-cylinder>
+      </a-entity>
+      <a-entity class="tree" position="-5 0 10">
+        <a-sphere src="#grass-texture" position="0 4 -5" radius="1.25"></a-sphere>
+        <a-sphere src="#grass-texture" position="-1 3 -5" radius="1.25"></a-sphere>
+        <a-sphere src="#grass-texture" position="1 3 -5" radius="1.25"></a-sphere>
+        <a-cylinder src="texture_rock.jpeg" position="0 0.75 -5" radius="0.5" height="3.5"></a-cylinder>
+      </a-entity>
+      <a-entity class="tree" position="-5 0 17">
+        <a-sphere src="#grass-texture" position="0 4 -5" radius="1.25"></a-sphere>
+        <a-sphere src="#grass-texture" position="-1 3 -5" radius="1.25"></a-sphere>
+        <a-sphere src="#grass-texture" position="1 3 -5" radius="1.25"></a-sphere>
+        <a-cylinder src="texture_rock.jpeg" position="0 0.75 -5" radius="0.5" height="3.5"></a-cylinder>
+      </a-entity>
+      <a-entity class="tree" position="5 0 3">
+        <a-sphere src="#grass-texture" position="0 4 -5" radius="1.25"></a-sphere>
+        <a-sphere src="#grass-texture" position="-1 3 -5" radius="1.25"></a-sphere>
+        <a-sphere src="#grass-texture" position="1 3 -5" radius="1.25"></a-sphere>
+        <a-cylinder src="texture_rock.jpeg" position="0 0.75 -5" radius="0.5" height="3.5"></a-cylinder>
+      </a-entity>
+      <a-entity class="tree" position="5 0 10">
+        <a-sphere src="#grass-texture" position="0 4 -5" radius="1.25"></a-sphere>
+        <a-sphere src="#grass-texture" position="-1 3 -5" radius="1.25"></a-sphere>
+        <a-sphere src="#grass-texture" position="1 3 -5" radius="1.25"></a-sphere>
+        <a-cylinder src="texture_rock.jpeg" position="0 0.75 -5" radius="0.5" height="3.5"></a-cylinder>
+      </a-entity>
+      <a-entity class="tree" position="5 0 17">
+        <a-sphere src="#grass-texture" position="0 4 -5" radius="1.25"></a-sphere>
+        <a-sphere src="#grass-texture" position="-1 3 -5" radius="1.25"></a-sphere>
+        <a-sphere src="#grass-texture" position="1 3 -5" radius="1.25"></a-sphere>
+        <a-cylinder src="texture_rock.jpeg" position="0 0.75 -5" radius="0.5" height="3.5"></a-cylinder>
+      </a-entity>
 
 
 
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="80" height="100" color="#7BC8A4"></a-plane>
+    <a-sky src="#sky-texture" repeat="3 4"></a-sky>    </a-scene>
+</body>
 
-      
-
-
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="40" height="40" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
-  </body>
 </html>
