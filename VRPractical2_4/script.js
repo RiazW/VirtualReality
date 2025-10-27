@@ -8,7 +8,10 @@ window.addEventListener("DOMContentLoaded",function() {
   loop();
 })
 
-function loop(){
+
+  function loop(){
+    snowman.spin();
+  
 
   
   window.requestAnimationFrame( loop );
