@@ -14,4 +14,8 @@ class Cloud{
     scene.append( this.obj )
   }
   //Challenge 2: Create a function fly() which increases x by dx and updates the Cloud object to that x position
+  
+  
+
+
 }
