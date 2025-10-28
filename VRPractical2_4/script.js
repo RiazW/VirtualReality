@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded",function() {
 })
 
 function loop(){
-  // rocket.launch();
+  rocket.launch();
   
   window.requestAnimationFrame( loop );
 }
