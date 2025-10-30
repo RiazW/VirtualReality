@@ -1,9 +1,15 @@
-let scene;
+let mech, scene;
 
 window.addEventListener("DOMContentLoaded",function() {
   scene = document.querySelector("a-scene");
-  
-  mech = document.getElementById("mech-1");
+
+    
+  mech1 = document.getElementById("mech-1");
+  mech1 = new mech(5,0,0);
+
+  mech1.push(new mech(xPos, yPos, zPos));
+
+
  
   loop();
 })
