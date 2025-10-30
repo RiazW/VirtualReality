@@ -1,7 +1,10 @@
 class Rocket {
       constructor(x, y, z) {
         // Store y position and movement speed
+      
+        this.x = x;  
         this.y = y;
+        this.z = z;
         this.dy = Math.random() * 0.05 + 0.02; // Random upward speed
         
         // Create container entity
@@ -9,9 +12,10 @@ class Rocket {
         
         // Rocket body (main cylinder)
         let body = document.createElement("a-cylinder");
-        body.setAttribute("color", "#FF0000");
+        // body.setAttribute("color", "#FF0000");
         body.setAttribute("height", 3);
         body.setAttribute("radius", 0.5);
+        body.setAttribute("src", "#metal-texture");
         body.setAttribute("position", {x: 0, y: 1, z: 0});
         this.obj.append(body);
 
@@ -30,7 +34,7 @@ class Rocket {
         this.obj.append(body2);
 
         let cone= document.createElement("a-cone");
-        cone.setAttribute("color", "#FFA500");
+        cone.setAttribute("color", "#3b3b3b");
         cone.setAttribute("height", 3);
         cone.setAttribute("radius-bottom", 0.5);
         cone.setAttribute("radius-top", 0);
@@ -83,12 +87,13 @@ class Rocket {
         scene.append(this.obj);
       }
 
-      launch() {
-        this.y+=this.dy;
-        this.obj.setAttribute("position", {x: this.obj.getAttribute("position").x, y: this.y, z: this.obj.getAttribute("position").z});
-        this.flame.setAttribute("visible", true);
-        this.flame1.setAttribute("visible", true);
-        this.flame2.setAttribute("visible", true);
-      }
+  launch() {
+    this.y += this.dy;
+    this.obj.setAttribute("position", {x:this.x, y:this.y, z:this.z});
+    this.obj.setAttribute("position", { x: this.obj.getAttribute("position").x, y: this.y, z: this.obj.getAttribute("position").z });
+    this.flame.setAttribute("visible", true);
+    this.flame1.setAttribute("visible", true);
+    this.flame2.setAttribute("visible", true);
+  }
      
     }
